@@ -24,5 +24,16 @@ namespace Agate.SpaceShooter
                 Destroy(gameObject);
             }
         }
+
+        private void OnTriggerEnter2D(Collider2D collider)
+        {
+            Enemy enemy = collider.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                GameManager.Instance.AddScore(10);
+                Destroy(gameObject);
+                Destroy(enemy.gameObject);
+            }
+        }
     }
 }
