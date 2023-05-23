@@ -33,20 +33,19 @@ namespace Agate.SpaceShooter
             }
         }
 
-        private void Update()
+        public void MoveLeft()
         {
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                _moveDirection = -1f;
-            }
-            else if (Input.GetKey(KeyCode.RightArrow))
-            {
-                _moveDirection = 1f;
-            }
-            else
-            {
-                _moveDirection = 0f;
-            }
+            _moveDirection = -1;
+        }
+
+        public void MoveRight()
+        {
+            _moveDirection = 1;
+        }
+
+        public void StopMove()
+        {
+            _moveDirection = 0;
         }
     }
 }

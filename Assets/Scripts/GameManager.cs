@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace Agate.SpaceShooter
@@ -9,6 +10,9 @@ namespace Agate.SpaceShooter
         [SerializeField] private Enemy _enemyPrefab;
         [SerializeField] private int _enemyCount = 5;
         [SerializeField] private float _enemySpawnRange = 4;
+
+        [Header("UI")]
+        [SerializeField] private TMP_Text _scoreText;
 
         private int _score;
 
@@ -28,7 +32,7 @@ namespace Agate.SpaceShooter
             {
                 Enemy enemy = Instantiate(_enemyPrefab);
                 enemy.transform.position = new Vector3(
-                    Random.Range(-_enemySpawnRange, _enemySpawnRange), 4f, 0f
+                    Random.Range(-_enemySpawnRange, _enemySpawnRange), Camera.main.orthographicSize, 0f
                 );
             }
         }
@@ -36,7 +40,7 @@ namespace Agate.SpaceShooter
         public void AddScore(int value)
         {
             _score += value;
-            Debug.Log("Score: " + _score);
+            _scoreText.SetText(_score.ToString());
         }
     }
 }
