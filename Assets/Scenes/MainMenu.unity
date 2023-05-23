@@ -444,6 +444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playButton: {fileID: 1938904421}
+  _closeButton: {fileID: 310881640}
 --- !u!4 &1167599133
 Transform:
   m_ObjectHideFlags: 0
