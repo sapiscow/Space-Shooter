@@ -130,14 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3088040327559074975, guid: c5b825d635e32e94d838346ff866dcb8, type: 3}
-      propertyPath: _leftButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3088040327559074975, guid: c5b825d635e32e94d838346ff866dcb8, type: 3}
-      propertyPath: _rightButton
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3600594503257681557, guid: c5b825d635e32e94d838346ff866dcb8, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -619,8 +611,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 7255765632812403587, guid: 3bfd413563a9847489ad81aa812ee891, type: 3}
+  _enemyBossPrefab: {fileID: 88014554175085364, guid: fe1635583cbf3084f899bb41f4be8df0, type: 3}
   _enemyCount: 5
   _enemySpawnRange: 4
+  _enemySpawnDelay: 1
+  _bossIncomingDelay: 10
+  _coinPrefab: {fileID: 194969319813040005, guid: c60aaa8ab923e6c4d9d59cd4d4a98750, type: 3}
+  _coinSpawnRange: 4
   _scoreText: {fileID: 1204447504}
 --- !u!4 &1481811144
 Transform:

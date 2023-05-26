@@ -4,23 +4,28 @@ namespace Agate.SpaceShooter
 {
     public class Enemy : MonoBehaviour
     {
-        [SerializeField] private float _moveSpeed = 1f;
-        [SerializeField] private Vector2 _moveMaxDistance = new Vector2(4f, 3f);
+        [SerializeField] protected float _moveSpeed = 1f;
+        [SerializeField] protected Vector2 _moveMaxDistance = new Vector2(4f, 3f);
+        [SerializeField] protected Vector2 _changeDirectionDelay = new Vector2(1f, 2f);
+        [SerializeField] protected Vector2 _enemyShootDelay = new Vector2(1f, 2f);
+        [SerializeField] protected EnemyBullet _bulletPrefab;
 
-        private Rigidbody2D _rigidbody;
-        private float _moveDirection;
+        protected Rigidbody2D _rigidbody;
+        protected float _moveDirection;
+        protected float _changeDirectionDelayCounter;
+        protected float _enemyShootDelayCounter;
 
-        private void Awake()
+        protected void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 
-        private void OnEnable()
+        protected void OnEnable()
         {
-            _moveDirection = Random.value > 0.5f ? 1 : -1;
+            RandomizeDirection();
         }
 
-        private void FixedUpdate()
+        protected void FixedUpdate()
         {
             float moveSpeed = _moveSpeed * Time.fixedDeltaTime;
             Vector2 moveTarget = _rigidbody.position + new Vector2(_moveDirection * moveSpeed, -moveSpeed);
@@ -34,6 +39,40 @@ namespace Agate.SpaceShooter
             }
 
             _rigidbody.MovePosition(moveTarget);
+
+            _changeDirectionDelayCounter -= Time.fixedDeltaTime;
+            if (_changeDirectionDelayCounter < 0f)
+            {
+                RandomizeDirection();
+                _changeDirectionDelayCounter = Random.Range(_changeDirectionDelay.x, _changeDirectionDelay.y);
+            }
+
+            _enemyShootDelayCounter -= Time.fixedDeltaTime;
+            if (_enemyShootDelayCounter < 0f)
+            {
+                Shoot();
+                _enemyShootDelayCounter = Random.Range(_enemyShootDelay.x, _enemyShootDelay.y);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            GameManager.Instance.RemoveEnemyFromList(this);
+        }
+
+        protected void RandomizeDirection()
+        {
+            _moveDirection = Random.value > 0.5f ? 1 : -1;
+        }
+
+        protected virtual void Shoot()
+        {
+            EnemyBullet bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation);
+        }
+
+        public virtual void Shooted()
+        {
+            Destroy(gameObject);
         }
     }
 }

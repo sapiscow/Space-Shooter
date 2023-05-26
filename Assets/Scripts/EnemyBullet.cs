@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Agate.SpaceShooter
 {
-    public class PlayerBullet : MonoBehaviour
+    public class EnemyBullet : MonoBehaviour
     {
         [SerializeField] private float _speed = 8f;
         [SerializeField] private float _maxDistance = 8f;
@@ -16,10 +16,10 @@ namespace Agate.SpaceShooter
 
         private void FixedUpdate()
         {
-            Vector2 moveTarget = _rigidbody.position + Vector2.up * (_speed * Time.fixedDeltaTime);
+            Vector2 moveTarget = _rigidbody.position + Vector2.down * (_speed * Time.fixedDeltaTime);
             _rigidbody.MovePosition(moveTarget);
 
-            if (transform.position.y > _maxDistance)
+            if (transform.position.y < -_maxDistance)
             {
                 Destroy(gameObject);
             }
@@ -27,12 +27,11 @@ namespace Agate.SpaceShooter
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            Enemy enemy = collider.GetComponent<Enemy>();
-            if (enemy != null)
+            Player player = collider.GetComponent<Player>();
+            if (player != null)
             {
-                GameManager.Instance.AddScore(10);
                 Destroy(gameObject);
-                enemy.Shooted();
+                player.Shooted();
             }
         }
     }

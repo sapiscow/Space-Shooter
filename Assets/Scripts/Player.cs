@@ -47,5 +47,11 @@ namespace Agate.SpaceShooter
         {
             _moveDirection = 0;
         }
+
+        public void Shooted()
+        {
+            Destroy(gameObject);
+            GameManager.Instance.SetGameEnd();
+        }
     }
 }
