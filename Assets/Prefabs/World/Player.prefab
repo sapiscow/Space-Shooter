@@ -146,5 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d59d401a03046ba49ac60913a693ef8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 5
   _moveSpeed: 4
+  _moveMaxDistance: 4
+  _shootDelay: 1
   _bulletPrefab: {fileID: 7191956131213644030, guid: ce491f89e8b4a864786ec59ebcd982da, type: 3}

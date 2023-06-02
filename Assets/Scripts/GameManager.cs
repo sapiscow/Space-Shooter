@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Agate.SpaceShooter
 {
@@ -20,14 +21,20 @@ namespace Agate.SpaceShooter
         [Header("Coin")]
         [SerializeField] private Coin _coinPrefab;
         [SerializeField] private float _coinSpawnRange = 4;
+        [SerializeField] private float _coinSpawnDelay = 1f;
 
         [Header("UI")]
         [SerializeField] private TMP_Text _scoreText;
+        [SerializeField] private GameObject _resultScreen;
+        [SerializeField] private TMP_InputField _nameInputField;
+        [SerializeField] private Button _confirmButton;
 
+        private PlayerData _playerData = new PlayerData();
         private Camera _mainCamera;
         private int _score;
         private bool _isSpawning = true;
         private float _enemySpawnDelayCounter;
+        private float _coinSpawnDelayCounter;
         private List<Enemy> _spawnedEnemies = new();
 
         private void Awake()
@@ -35,6 +42,9 @@ namespace Agate.SpaceShooter
             Instance = this;
 
             _mainCamera = Camera.main;
+            _confirmButton.onClick.AddListener(OnConfirmButtonClicked);
+
+            _playerData.Load();
         }
 
         private void Start()
@@ -63,6 +73,13 @@ namespace Agate.SpaceShooter
                     EnemyBoss enemyBoss = Instantiate(_enemyBossPrefab);
                     enemyBoss.transform.position = new Vector3(0f, _mainCamera.orthographicSize, 0f);
                 }
+            }
+
+            _coinSpawnDelayCounter += Time.fixedDeltaTime;
+            if (_coinSpawnDelayCounter > _coinSpawnDelay)
+            {
+                SpawnCoin();
+                _coinSpawnDelayCounter = 0f;
             }
         }
 
@@ -104,6 +121,14 @@ namespace Agate.SpaceShooter
 
         public void SetGameEnd()
         {
+            _resultScreen.gameObject.SetActive(true);
+        }
+
+        private void OnConfirmButtonClicked()
+        {
+            _playerData.AddScore(_nameInputField.text, _score);
+            _playerData.PrintAllScores();
+
             SceneManager.LoadScene(0);
         }
     }

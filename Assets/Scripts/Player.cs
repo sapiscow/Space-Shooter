@@ -4,18 +4,31 @@ namespace Agate.SpaceShooter
 {
     public class Player : MonoBehaviour
     {
+        [SerializeField] private int _health = 5;
         [SerializeField] private float _moveSpeed = 4f;
         [SerializeField] private float _moveMaxDistance = 4f;
         [SerializeField] private float _shootDelay = 1f;
         [SerializeField] private PlayerBullet _bulletPrefab;
 
+        [Header("UI")]
+        [SerializeField] private RectTransform _playerHealth;
+        [SerializeField] private GameObject _playerHealthElementPrefab;
+
         private Rigidbody2D _rigidbody;
         private float _moveDirection;
         private float _shootDelayCounter;
 
+        private GameObject[] _playerHealthElements;
+
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+
+            _playerHealthElements = new GameObject[_health];
+            for (int i = 0; i < _health; i++)
+            {
+                _playerHealthElements[i] = Instantiate(_playerHealthElementPrefab, _playerHealth);
+            }
         }
 
         private void Update()
@@ -66,8 +79,19 @@ namespace Agate.SpaceShooter
 
         public void Shooted()
         {
-            Destroy(gameObject);
-            GameManager.Instance.SetGameEnd();
+            if (_health <= 0)
+            {
+                return;
+            }
+            
+            _health--;
+            _playerHealthElements[_health].SetActive(false);
+
+            if (_health <= 0)
+            {
+                Destroy(gameObject);
+                GameManager.Instance.SetGameEnd();
+            }
         }
     }
 }
