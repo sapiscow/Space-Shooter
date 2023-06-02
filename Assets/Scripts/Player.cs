@@ -18,6 +18,22 @@ namespace Agate.SpaceShooter
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 
+        private void Update()
+        {
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                MoveLeft();
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                MoveRight();
+            }
+            else
+            {
+                StopMove();
+            }
+        }
+
         private void FixedUpdate()
         {
             Vector2 moveTarget = _rigidbody.position + Vector2.right * (_moveDirection * _moveSpeed * Time.fixedDeltaTime);
