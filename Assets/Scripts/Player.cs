@@ -33,6 +33,7 @@ namespace Agate.SpaceShooter
 
         private void Update()
         {
+#if UNITY_EDITOR
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 MoveLeft();
@@ -45,6 +46,7 @@ namespace Agate.SpaceShooter
             {
                 StopMove();
             }
+#endif
         }
 
         private void FixedUpdate()
