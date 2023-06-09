@@ -22,7 +22,7 @@ namespace Agate.SpaceShooter
 
             if (transform.position.y < -_mainCamera.orthographicSize)
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
 
@@ -32,7 +32,7 @@ namespace Agate.SpaceShooter
             if (player != null)
             {
                 GameManager.Instance.AddScore(20);
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
     }

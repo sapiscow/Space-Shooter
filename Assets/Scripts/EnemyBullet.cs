@@ -21,7 +21,7 @@ namespace Agate.SpaceShooter
 
             if (transform.position.y < -_maxDistance)
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
 
@@ -30,7 +30,7 @@ namespace Agate.SpaceShooter
             Player player = collider.GetComponent<Player>();
             if (player != null)
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
                 player.Shooted();
             }
         }

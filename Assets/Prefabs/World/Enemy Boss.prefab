@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3195016706186097683}
   - component: {fileID: 4129118590996269969}
   - component: {fileID: 88014554175085364}
+  - component: {fileID: 4398918767389602704}
   m_Layer: 0
   m_Name: Enemy Boss
   m_TagString: Untagged
@@ -150,5 +151,24 @@ MonoBehaviour:
   _moveMaxDistance: {x: 4, y: 3}
   _changeDirectionDelay: {x: 1, y: 2}
   _enemyShootDelay: {x: 1, y: 2}
-  _bulletPrefab: {fileID: 6158351417731659459, guid: ceff86de95a7cd7408435e2ab76693b2, type: 3}
   _health: 10
+--- !u!95 &4398918767389602704
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7041761452641035845}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 21eb08a3fba7a0747a239458225e5fd0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

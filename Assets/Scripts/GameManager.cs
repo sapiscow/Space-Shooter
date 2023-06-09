@@ -11,7 +11,6 @@ namespace Agate.SpaceShooter
         public static GameManager Instance;
 
         [Header("Enemy")]
-        [SerializeField] private Enemy _enemyPrefab;
         [SerializeField] private EnemyBoss _enemyBossPrefab;
         [SerializeField] private int _enemyCount = 5;
         [SerializeField] private float _enemySpawnRange = 4;
@@ -19,7 +18,6 @@ namespace Agate.SpaceShooter
         [SerializeField] private float _bossIncomingDelay = 10f;
 
         [Header("Coin")]
-        [SerializeField] private Coin _coinPrefab;
         [SerializeField] private float _coinSpawnRange = 4;
         [SerializeField] private float _coinSpawnDelay = 1f;
 
@@ -87,7 +85,7 @@ namespace Agate.SpaceShooter
         {
             for (int i = 0; i < _enemyCount; i++)
             {
-                Enemy enemy = Instantiate(_enemyPrefab);
+                Enemy enemy = PoolManager.Instance.GetOrCreateEnemy();
                 enemy.transform.position = new Vector3(
                     Random.Range(-_enemySpawnRange, _enemySpawnRange), _mainCamera.orthographicSize, 0f
                 );
@@ -98,7 +96,7 @@ namespace Agate.SpaceShooter
 
         private void SpawnCoin()
         {
-            Coin coin = Instantiate(_coinPrefab);
+            Coin coin = PoolManager.Instance.GetOrCreateCoin();
             coin.transform.position = new Vector3(
                 Random.Range(-_coinSpawnRange, _coinSpawnRange), _mainCamera.orthographicSize, 0f
             );

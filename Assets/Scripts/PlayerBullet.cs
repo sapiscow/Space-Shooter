@@ -21,7 +21,7 @@ namespace Agate.SpaceShooter
 
             if (transform.position.y > _maxDistance)
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
 
@@ -31,7 +31,7 @@ namespace Agate.SpaceShooter
             if (enemy != null)
             {
                 GameManager.Instance.AddScore(10);
-                Destroy(gameObject);
+                gameObject.SetActive(false);
                 enemy.Shooted();
             }
         }

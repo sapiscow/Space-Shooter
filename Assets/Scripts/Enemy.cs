@@ -8,7 +8,6 @@ namespace Agate.SpaceShooter
         [SerializeField] protected Vector2 _moveMaxDistance = new Vector2(4f, 3f);
         [SerializeField] protected Vector2 _changeDirectionDelay = new Vector2(1f, 2f);
         [SerializeField] protected Vector2 _enemyShootDelay = new Vector2(1f, 2f);
-        [SerializeField] protected EnemyBullet _bulletPrefab;
 
         protected Rigidbody2D _rigidbody;
         protected float _moveDirection;
@@ -55,7 +54,7 @@ namespace Agate.SpaceShooter
             }
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             GameManager.Instance.RemoveEnemyFromList(this);
         }
@@ -67,12 +66,13 @@ namespace Agate.SpaceShooter
 
         protected virtual void Shoot()
         {
-            EnemyBullet bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation);
+            EnemyBullet bullet = PoolManager.Instance.GetOrCreateEnemyBullet();
+            bullet.transform.position = transform.position;
         }
 
         public virtual void Shooted()
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

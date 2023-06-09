@@ -10,8 +10,8 @@ namespace Agate.SpaceShooter
         {
             for (int i = -1; i <= 1; i++)
             {
-                Vector2 bulletPosition = new Vector2(transform.position.x + i, transform.position.y);
-                EnemyBullet bullet = Instantiate(_bulletPrefab, bulletPosition, transform.rotation);
+                EnemyBullet bullet = PoolManager.Instance.GetOrCreateEnemyBullet();
+                bullet.transform.position = new Vector2(transform.position.x + i, transform.position.y);
             }
         }
 

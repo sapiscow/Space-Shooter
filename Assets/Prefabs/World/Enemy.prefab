@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1527325837445848440}
   - component: {fileID: 5804674837940623456}
   - component: {fileID: 7255765632812403587}
+  - component: {fileID: 5414883324865414494}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -150,4 +151,23 @@ MonoBehaviour:
   _moveMaxDistance: {x: 4, y: 3}
   _changeDirectionDelay: {x: 1, y: 2}
   _enemyShootDelay: {x: 1, y: 2}
-  _bulletPrefab: {fileID: 6158351417731659459, guid: ceff86de95a7cd7408435e2ab76693b2, type: 3}
+--- !u!95 &5414883324865414494
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759860937479890848}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fcc0165ef897adb449e76ab047b597d9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

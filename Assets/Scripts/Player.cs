@@ -8,20 +8,21 @@ namespace Agate.SpaceShooter
         [SerializeField] private float _moveSpeed = 4f;
         [SerializeField] private float _moveMaxDistance = 4f;
         [SerializeField] private float _shootDelay = 1f;
-        [SerializeField] private PlayerBullet _bulletPrefab;
 
         [Header("UI")]
         [SerializeField] private RectTransform _playerHealth;
         [SerializeField] private GameObject _playerHealthElementPrefab;
 
+        private Animator _animator;
         private Rigidbody2D _rigidbody;
-        private float _moveDirection;
+        private int _moveDirection;
         private float _shootDelayCounter;
 
         private GameObject[] _playerHealthElements;
 
         private void Awake()
         {
+            _animator = GetComponent<Animator>();
             _rigidbody = GetComponent<Rigidbody2D>();
 
             _playerHealthElements = new GameObject[_health];
@@ -47,6 +48,8 @@ namespace Agate.SpaceShooter
                 StopMove();
             }
 #endif
+
+            _animator.SetInteger("moveDirection", _moveDirection);
         }
 
         private void FixedUpdate()
@@ -60,7 +63,9 @@ namespace Agate.SpaceShooter
             if (_shootDelayCounter > _shootDelay)
             {
                 _shootDelayCounter = 0f;
-                PlayerBullet bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation);
+
+                PlayerBullet bullet = PoolManager.Instance.GetOrCreatePlayerBullet();
+                bullet.transform.position = transform.position;
             }
         }
 

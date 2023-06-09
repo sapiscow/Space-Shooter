@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8833812266573745039}
   - component: {fileID: 9125541459597970723}
   - component: {fileID: 7191956131213644030}
+  - component: {fileID: 4489879158291854232}
   m_Layer: 0
   m_Name: PlayerBullet
   m_TagString: Untagged
@@ -147,3 +148,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 8
+  _maxDistance: 8
+--- !u!95 &4489879158291854232
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961382223670051318}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d070d0ef937b32b4796666bbdd0c88db, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

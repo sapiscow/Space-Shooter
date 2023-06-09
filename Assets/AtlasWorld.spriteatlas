@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AtlasWorld
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: c2b26bae118b47748bbde2f8459cda60, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -2014813535, guid: 31043a80a23d5e747bba8a8c82bb0236, type: 3}
+  - {fileID: -1402570647, guid: 31043a80a23d5e747bba8a8c82bb0236, type: 3}
+  - {fileID: 21300000, guid: 3d813991d9cab04439ed1c108595bc57, type: 3}
+  - {fileID: -1584221195, guid: 0de4ca525e875b44582066617f0021d2, type: 3}
+  - {fileID: -1279103962, guid: 0de4ca525e875b44582066617f0021d2, type: 3}
+  - {fileID: -1623261494, guid: 3f65f568b0ed2014fb92c1e5e5da63e5, type: 3}
+  - {fileID: -65154871, guid: 3f65f568b0ed2014fb92c1e5e5da63e5, type: 3}
+  - {fileID: 349864728, guid: 3f65f568b0ed2014fb92c1e5e5da63e5, type: 3}
+  - {fileID: -1268678024, guid: 3f65f568b0ed2014fb92c1e5e5da63e5, type: 3}
+  - {fileID: -681497451, guid: 3f65f568b0ed2014fb92c1e5e5da63e5, type: 3}
+  - {fileID: -2050409612, guid: 3f65f568b0ed2014fb92c1e5e5da63e5, type: 3}
+  - {fileID: 1242768412, guid: 569236dab784de049af1e9cccaf5836d, type: 3}
+  - {fileID: -340738086, guid: 569236dab784de049af1e9cccaf5836d, type: 3}
+  - {fileID: 664534836, guid: 569236dab784de049af1e9cccaf5836d, type: 3}
+  - {fileID: -757002556, guid: 569236dab784de049af1e9cccaf5836d, type: 3}
+  - {fileID: -1517810752, guid: cdc877fe59810d545a7993c26686b25c, type: 3}
+  - {fileID: -184645303, guid: cdc877fe59810d545a7993c26686b25c, type: 3}
+  - {fileID: -1237137579, guid: cdc877fe59810d545a7993c26686b25c, type: 3}
+  - {fileID: -1923627008, guid: cdc877fe59810d545a7993c26686b25c, type: 3}
+  - {fileID: -1271432156, guid: cdc877fe59810d545a7993c26686b25c, type: 3}
+  - {fileID: -1104097335, guid: cdc877fe59810d545a7993c26686b25c, type: 3}
+  - {fileID: 1685490784, guid: cdc877fe59810d545a7993c26686b25c, type: 3}
+  - {fileID: -1522510509, guid: cdc877fe59810d545a7993c26686b25c, type: 3}
+  - {fileID: 1961872683, guid: cdc877fe59810d545a7993c26686b25c, type: 3}
+  - {fileID: 1402734843, guid: cdc877fe59810d545a7993c26686b25c, type: 3}
+  - {fileID: -974458690, guid: cdc877fe59810d545a7993c26686b25c, type: 3}
+  - {fileID: -1014582492, guid: cdc877fe59810d545a7993c26686b25c, type: 3}
+  - {fileID: 239673788, guid: cdc877fe59810d545a7993c26686b25c, type: 3}
+  - {fileID: -1586729382, guid: cdc877fe59810d545a7993c26686b25c, type: 3}
+  - {fileID: 499596623, guid: cdc877fe59810d545a7993c26686b25c, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - enemy_boss_0
+  - enemy_boss_1
+  - background
+  - enemy_0
+  - enemy_1
+  - player_5
+  - player_4
+  - player_1
+  - player_0
+  - player_3
+  - player_2
+  - bullet_2
+  - bullet_3
+  - bullet_0
+  - bullet_1
+  - coin_10
+  - coin_11
+  - coin_12
+  - coin_13
+  - coin_14
+  - coin_9
+  - coin_8
+  - coin_1
+  - coin_0
+  - coin_3
+  - coin_2
+  - coin_5
+  - coin_4
+  - coin_7
+  - coin_6
+  m_RenderDataMap: {}
+  m_Tag: AtlasWorld
+  m_IsVariant: 0
